@@ -1,0 +1,46 @@
+public class Truck extends Transport implements Competing{
+
+    public Truck(String brand, String model, float engineVolume) {
+        super(brand, model, engineVolume);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    public void startMoving() {
+        System.out.println("Начать движение!");
+    }
+
+    @Override
+    public void finishMoving() {
+        System.out.println("Закончить движение!");
+    }
+
+    @Override
+    public void getPitStop(double pitStop) {
+        System.out.println("Пит стоп - " + pitStop + " с.");
+    }
+
+    @Override
+    public void getBestLapTime(double bestLapTime) {
+        System.out.println("Лучшее время круга - " + bestLapTime + " с.");
+    }
+
+    @Override
+    public void getMaxSpeed(double maxSpeed) {
+        System.out.println("Максимальная скорость - " + maxSpeed + " с.");
+    }
+}
