@@ -1,7 +1,6 @@
 import org.w3c.dom.ls.LSOutput;
 
 import java.time.LocalDate;
-//
 public class Main {
     public static void main(String[] args) {
 
@@ -94,9 +93,9 @@ public class Main {
         ural.getBestLapTime(54);
         ural.getMaxSpeed(110);
 
-        DriverB <Car> boris = new DriverB<>("Иванов Борис", true, 5);
-        DriverC <Truck> ivan = new DriverC<>("Григорьев Иван", true, 7);
-        DriverD <Bus> kiril = new DriverD<>("Серов Кирил", true,10);
+        DriverB boris = new DriverB("Иванов Борис", "В", 5,lada);
+        DriverC ivan = new DriverC("Григорьев Иван", "C", 7,kamaz);
+        DriverD kiril = new DriverD("Серов Кирилл","D",10, welly);
 
         System.out.println();
 
@@ -104,8 +103,22 @@ public class Main {
         ivan.fillTheCar();
         kiril.fillTheCar();
         System.out.println();
-        boris.inform(kia);
-        ivan.inform(kamaz);
-        kiril.inform(ikarus);
+
+        boris.startMoving();
+        boris.stopMoving();
+        System.out.println();
+
+        ivan.startMoving();
+        ivan.stopMoving();
+        System.out.println();
+
+        kiril.startMoving();
+        kiril.stopMoving();
+        System.out.println();
+
+        boris.getMessage();
+        kiril.getMessage();
+        ivan.getMessage();
+
     }
 }

@@ -49,10 +49,11 @@ public abstract class Transport {
 
     public abstract void finishMoving();
 
+
     @Override
     public String toString() {
-        return  brand + " " + model +
-                ", объём двигателя - " + engineVolume +
+        return  this.brand + " " + this.model +
+                ", объём двигателя - " + this.engineVolume +
                 ".";
     }
 

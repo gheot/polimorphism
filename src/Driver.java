@@ -1,52 +1,53 @@
 import java.util.Objects;
 
-public abstract class Driver {
+public abstract class Driver <T extends Transport>{
 
     public final String name;
-    public boolean drivingLicense;
-    public double experience;
+    public final String drivingLicense;
+    public int experience;
+    public final T car;
 
-    public Driver(String name, boolean drivingLicense, double experience) {
+    public Driver(String name, String drivingLicense, int experience,T car) {
         this.name = ValidationUtils.validOrDefault(name, "false");
-        this.drivingLicense = drivingLicense;
+        this.drivingLicense = ValidationUtils.validOrDefault(drivingLicense, "false");
         setExperience(experience);
+        this.car = car;
     }
 
     public String getName() {
         return name;
     }
 
-    public boolean isDrivingLicense() {
+    public String getDrivingLicense() {
         return drivingLicense;
     }
 
-    public void setDrivingLicense(boolean drivingLicense) {
-        this.drivingLicense = drivingLicense;
-    }
-
-    public double getExperience() {
+    public int getExperience() {
         return experience;
     }
 
-    public void setExperience(double experience) {
+    public void setExperience(int experience) {
         if (experience > 0) {
             this.experience = experience;
         } else {
             this.experience = 0;
         }
     }
+    public T getCar() {
+        return car;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Driver driver = (Driver) o;
-        return drivingLicense == driver.drivingLicense && Double.compare(driver.experience, experience) == 0 && Objects.equals(name, driver.name);
+        Driver<?> driver = (Driver<?>) o;
+        return experience == driver.experience && Objects.equals(name, driver.name) && Objects.equals(drivingLicense, driver.drivingLicense) && Objects.equals(car, driver.car);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, drivingLicense, experience);
+        return Objects.hash(name, drivingLicense, experience, car);
     }
 
     public abstract void startMoving();
@@ -55,8 +56,5 @@ public abstract class Driver {
 
     public abstract void fillTheCar();
 
-    @Override
-    public String toString() {
-        return  name;
-    }
+    public abstract void getMessage();
 }

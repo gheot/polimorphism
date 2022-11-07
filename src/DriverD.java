@@ -1,7 +1,7 @@
-public class DriverD <D extends Bus> extends Driver {
+public class DriverD extends Driver <Bus>{
 
-    public DriverD(String name, boolean drivingLicense, double experience) {
-        super(name, drivingLicense, experience);
+    public DriverD(String name, String drivingLicense, int experience, Bus car) {
+        super(name, drivingLicense, experience, car);
     }
 
     @Override
@@ -16,21 +16,29 @@ public class DriverD <D extends Bus> extends Driver {
 
     @Override
     public void startMoving() {
-        System.out.println("Начать движение!");
+        System.out.println(this.getName()+ ", водитель категории " + this.getDrivingLicense() + " начал движение!");
+        this.getCar().startMoving();
+
     }
 
     @Override
     public void stopMoving() {
-        System.out.println("Необходимо остановиться!");
+        System.out.println(this.getName()+ ", водитель категории " + this.getDrivingLicense() + " остановился!");
+        this.getCar().finishMoving();
+
     }
 
     @Override
     public void fillTheCar() {
-        System.out.println(getName() + ", необходимо заправить автобус!");
+        System.out.println(this.getName() + ", необходимо заправить " + this.getCar().getBrand()+ " "
+                + this.getCar().getModel());
+
     }
 
-    public void inform(D bus) {
-        System.out.println("Водитель " + getName() + " управляет автомобилем " + bus.getBrand() + " " + bus.getModel() +
-                " и будет участвовать в заезде.");
+    @Override
+    public void getMessage() {
+        System.out.println("Водитель " + getName() + " (категория " + getDrivingLicense()+ ") управляет автобусом " +
+                car.getBrand() + " " + car.getModel() + " и будет участвовать в заезде!");
+
     }
 }
