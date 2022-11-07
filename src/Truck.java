@@ -1,9 +1,17 @@
 public class Truck extends Transport implements Competing{
 
-    public Truck(String brand, String model, float engineVolume) {
-        super(brand, model, engineVolume);
-    }
+    private TypeOfCapacity typeOfCapacity;
 
+    public Truck(String brand, String model, float engineVolume,TypeOfCapacity typeOfCapacity) {
+        super(brand, model, engineVolume);
+        this.typeOfCapacity = typeOfCapacity;
+    }
+    public TypeOfCapacity getTypeOfCapacity() {
+        return typeOfCapacity;
+    }
+    public void setTypeOfCapacity(TypeOfCapacity typeOfCapacity) {
+        this.typeOfCapacity = typeOfCapacity;
+    }
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -15,8 +23,14 @@ public class Truck extends Transport implements Competing{
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public void printType() {
+        if (typeOfCapacity==null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            String from = typeOfCapacity.getFrom()==null? "" : " от " + typeOfCapacity.getFrom()+ " тонн ";
+            String to = typeOfCapacity.getTo()==null? "" : " до " + typeOfCapacity.getTo();
+            System.out.println("Грузоподъемность авто " + getBrand() + ": " + from + to + " тонн.");
+        }
     }
 
     @Override

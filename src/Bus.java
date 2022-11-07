@@ -1,6 +1,16 @@
 public class Bus  extends Transport implements Competing {
-    public Bus(String brand, String model, float engineVolume) {
+
+    private CapacityOfPeople capacityOfPeople;
+    public Bus(String brand, String model, float engineVolume,CapacityOfPeople capacityOfPeople) {
         super(brand, model, engineVolume);
+        this.capacityOfPeople = capacityOfPeople;
+    }
+    public CapacityOfPeople getCapacityOfPeople() {
+        return capacityOfPeople;
+    }
+
+    public void setCapacityOfPeople(CapacityOfPeople capacityOfPeople) {
+        this.capacityOfPeople = capacityOfPeople;
     }
 
     @Override
@@ -25,9 +35,14 @@ public class Bus  extends Transport implements Competing {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public void printType() {
+        if (capacityOfPeople==null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Вместимость автобуса " + getBrand() +": от " + capacityOfPeople.getFrom() + " мест до " + capacityOfPeople.getTo() + " мест.");
+        }
     }
+
 
     @Override
     public void getPitStop(double pitStop) {

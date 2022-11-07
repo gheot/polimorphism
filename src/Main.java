@@ -6,7 +6,7 @@ public class Main {
 
         //Объекты класса Car
 
-        Car lada = new Car("Lada", "Granta", 1.7f);
+        Car lada = new Car("Lada", "Granta", 1.7f, TypeOfBody.SEDAN);
         System.out.println(lada);
         lada.startMoving();
         lada.finishMoving();
@@ -14,7 +14,7 @@ public class Main {
         lada.getBestLapTime(25);
         lada.getMaxSpeed(120);
 
-        Car audi = new Car("Audi", "A850 LTDI quattro", 3.0f);
+        Car audi = new Car("Audi", "A850 LTDI quattro", 3.0f, TypeOfBody.SEDAN);
         System.out.println(audi);
         audi.startMoving();
         audi.finishMoving();
@@ -22,13 +22,13 @@ public class Main {
         audi.getBestLapTime(20);
         audi.getMaxSpeed(140);
 
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4f);
+        Car kia = new Car("Kia", "Sportage 4-го поколения", 2.4f,TypeOfBody.SEDAN);
         System.out.println(kia);
         kia.getPitStop(3.1);
         kia.getBestLapTime(30);
         kia.getMaxSpeed(110);
 
-        Car bmw = new Car("BMW", "Z8", 3.0f);
+        Car bmw = new Car("BMW", "Z8", 3.0f,TypeOfBody.SEDAN);
         System.out.println(bmw);
         bmw.getPitStop(2.5);
         bmw.getBestLapTime(25);
@@ -38,7 +38,7 @@ public class Main {
 
         // Объекты класса Bus
 
-        Bus paz = new Bus("ПАЗ", "32051", 7.4f);
+        Bus paz = new Bus("ПАЗ", "32051", 7.4f, CapacityOfPeople.SMALL);
         System.out.println(paz);
         paz.startMoving();
         paz.finishMoving();
@@ -46,19 +46,19 @@ public class Main {
         paz.getBestLapTime(40);
         paz.getMaxSpeed(120);
 
-        Bus liaz = new Bus("ЛиАЗ", "677", 8.5f);
+        Bus liaz = new Bus("ЛиАЗ", "677", 8.5f, CapacityOfPeople.MEDIUM);
         System.out.println(liaz);
         liaz.getPitStop(4.5);
         liaz.getBestLapTime(42);
         liaz.getMaxSpeed(110);
 
-        Bus welly = new Bus("London Bus Welly", "351", 9.5f);
+        Bus welly = new Bus("London Bus Welly", "351", 9.5f, CapacityOfPeople.EXTRA_LARGE);
         System.out.println(welly);
         welly.getPitStop(5);
         welly.getBestLapTime(41);
         welly.getMaxSpeed(100);
 
-        Bus ikarus = new Bus("Икарус", "250.59", 10.4f);
+        Bus ikarus = new Bus("Икарус", "250.59", 10.4f, CapacityOfPeople.LARGE);
         System.out.println(ikarus);
         ikarus.getPitStop(4.1);
         ikarus.getBestLapTime(45);
@@ -67,7 +67,7 @@ public class Main {
 
         // Объекты класс Truck
 
-        Truck maz = new Truck("Маз-", "5440", 15.0f);
+        Truck maz = new Truck("Маз", "5440", 15.0f, TypeOfCapacity.N1);
         System.out.println(maz);
         maz.startMoving();
         maz.finishMoving();
@@ -75,19 +75,19 @@ public class Main {
         maz.getBestLapTime(51);
         maz.getMaxSpeed(120);
 
-        Truck volvo = new Truck("Вольво", "FH460",14.8f);
+        Truck volvo = new Truck("Вольво", "FH460",14.8f, TypeOfCapacity.N3);
         System.out.println(volvo);
         volvo.getPitStop(6.0);
         volvo.getBestLapTime(50);
         volvo.getMaxSpeed(125);
 
-        Truck kamaz = new Truck("Камаз", "43118", 12.0f);
+        Truck kamaz = new Truck("Камаз", "43118", 12.0f, TypeOfCapacity.N2);
         System.out.println(kamaz);
         kamaz.getPitStop(4.5);
         kamaz.getBestLapTime(55);
         kamaz.getMaxSpeed(100);
 
-        Truck ural = new Truck("Урал", "4320", 13.5f);
+        Truck ural = new Truck("Урал", "4320", 13.5f, TypeOfCapacity.N1);
         System.out.println(ural);
         ural.getPitStop(6.4);
         ural.getBestLapTime(54);
@@ -119,6 +119,27 @@ public class Main {
         boris.getMessage();
         kiril.getMessage();
         ivan.getMessage();
+        System.out.println();
+
+        lada.printType();
+        audi.printType();
+        kia.printType();
+        bmw.printType();
+        System.out.println();
+
+        kamaz.printType();
+        maz.printType();
+        volvo.printType();
+        ural.printType();
+        System.out.println();
+
+        ikarus.printType();
+        welly.printType();
+        paz.printType();
+        liaz.printType();
+        System.out.println();
+
+
 
     }
 }

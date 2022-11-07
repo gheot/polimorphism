@@ -1,9 +1,20 @@
 import java.time.LocalDate;
 
 public class Car extends Transport implements Competing{
-    public Car(String brand, String model, float engineVolume) {
+
+    private TypeOfBody typeOfBody;
+    public Car(String brand, String model, float engineVolume,TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.typeOfBody = typeOfBody;
     }
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -27,9 +38,14 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public void printType() {
+        if (typeOfBody==null) {
+            System.out.println("Данных недостаточно");
+        } else {
+            System.out.println("Тип кузова авто " + getBrand() + ": " + typeOfBody);
+        }
     }
+
 
     @Override
     public void getPitStop(double pitStop) {
