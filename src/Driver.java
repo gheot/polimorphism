@@ -1,15 +1,15 @@
 import java.util.Objects;
 
-public abstract class Driver <T extends Transport>{
+public abstract class Driver <T extends Transport & Competing>{
 
     public final String name;
-    public final String drivingLicense;
+    public String drivingLicense;
     public int experience;
     public final T car;
 
     public Driver(String name, String drivingLicense, int experience,T car) {
         this.name = ValidationUtils.validOrDefault(name, "false");
-        this.drivingLicense = ValidationUtils.validOrDefault(drivingLicense, "false");
+        setDrivingLicense(drivingLicense);
         setExperience(experience);
         this.car = car;
     }
@@ -20,6 +20,13 @@ public abstract class Driver <T extends Transport>{
 
     public String getDrivingLicense() {
         return drivingLicense;
+    }
+
+    public void setDrivingLicense(String drivingLicense) {
+        if (drivingLicense == null) {
+            throw new IllegalArgumentException("Необходимо указать категорию прав!");
+        }
+        this.drivingLicense = drivingLicense;
     }
 
     public int getExperience() {

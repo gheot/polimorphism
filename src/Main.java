@@ -140,6 +140,33 @@ public class Main {
         System.out.println();
 
 
+        boolean test = Data.validate("example","example", "example");
+        if (test) {
+            System.out.println("Данные верны!");
+        }
+        else {
+            System.out.println("Данные неверны!");
+        }
+        service (lada, audi, kia, bmw,
+                paz, liaz, welly, ikarus,
+                maz, volvo, kamaz, ural);
 
+    }
+    private static void service (Transport...transports) {
+        for (int i = 0; i < transports.length; i++) {
+            serviceTransport(transports[i]);
+        }
+    }
+    private static void serviceTransport (Transport transport) {
+        try {
+            if (!transport.service()) {
+                throw  new RuntimeException("Автомобиль " + transport.getBrand() + " "+ transport.getModel()
+                        + " не прошёл диагностику!");
+            }
+        }
+        catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+
+        }
     }
 }

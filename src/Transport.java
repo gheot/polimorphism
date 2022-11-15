@@ -50,11 +50,14 @@ public abstract class Transport {
     public abstract void finishMoving();
     public abstract void printType();
 
+    public abstract boolean service();
+
     @Override
     public String toString() {
         return  this.brand + " " + this.model +
                 ", объём двигателя - " + this.engineVolume +
                 ".";
     }
+
 
 }
